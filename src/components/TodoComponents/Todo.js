@@ -1,10 +1,10 @@
 import React from 'react'
 
 const Todo = (props) => {
-
+    console.log(props)
     return(
-        <div>
-            <p>props.</p>
+        <div onClick={() => {props.toggleGame(props.game.id)}}>
+            <p>{props.game.name}</p>
         </div>
     )
 }

@@ -4,22 +4,22 @@ import TodoForm from "./components/TodoComponents/TodoForm"
 
 const games = [
     {
-      game: "Animal Crossing",
+      name: "Animal Crossing",
       id: 1,
       completed: false
     },
     {
-      game: "Dark Souls",
+      name: "Dark Souls",
       id: 2,
       completed: false
     },
     {
-      game: "Rainbow 6 Siege",
+      name: "Rainbow 6 Siege",
       id: 3,
       completed: false
     },
     {
-      game: "Skyrim",
+      name: "Skyrim",
       id: 4,
       completed: false
     },
@@ -34,12 +34,16 @@ class App extends React.Component {
     };
   }
 
+  toggleGame = (gameId) => {
+    console.log(gameId)
+  }
+
   render() {
     return (
       <div>
         <TodoForm />
         <h2>Welcome to your Todo App!</h2>
-        <TodoList games={this.state.games} />
+        <TodoList games={this.state.games} toggleGame={this.toggleGame}/>
       </div>
     );
   }

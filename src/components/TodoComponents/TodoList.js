@@ -6,7 +6,7 @@ const TodoList = (props) => {
     return(
         <div>
             {props.games.map(game => 
-                <Todo game={game} />
+                <Todo game={game}  toggleGame={props.toggleGame}/>
                 )}
         </div>
     )
