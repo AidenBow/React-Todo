@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from "./components/TodoComponents/TodoList"
 import TodoForm from "./components/TodoComponents/TodoForm"
+import "./components/TodoComponents/Todo.css"
 
 const games = [
     {
@@ -46,12 +47,30 @@ class App extends React.Component {
     })
   }
 
+  addGame = (e, gameName) => {
+    e.preventDefault();
+    
+    if (gameName.length > 0) {
+      const newGame = {
+        name: gameName,
+        id: Date.now(),
+        completed: false
+      };
+      console.log(newGame)
+      this.setState({
+        games: [...this.state.games, newGame]
+      });
+    }
+  }
+
   render() {
     return (
       <div>
-        <TodoForm />
+        
         <h2>Welcome to your Todo App!</h2>
-        <TodoList games={this.state.games} toggleGame={this.toggleGame}/>
+        <TodoForm addGame={this.addGame}/>
+        <TodoList games={this.state.games} 
+        toggleGame={this.toggleGame}/>
       </div>
     );
   }
