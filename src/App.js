@@ -36,6 +36,14 @@ class App extends React.Component {
 
   toggleGame = (gameId) => {
     console.log(gameId)
+    this.setState({
+      games: this.state.games.map(game => {
+        if (game.id === gameId) {
+          return { ...game, completed: !game.completed }
+        }
+        return game
+      })
+    })
   }
 
   render() {
