@@ -63,6 +63,14 @@ class App extends React.Component {
     }
   }
 
+    clearGames = (e) => {
+      e.preventDefault()
+      console.log("completed games cleared")
+      this.setState({
+        games: this.state.games.filter(game => game.completed === false)
+      })
+    }
+
   render() {
     return (
       <div>
@@ -71,6 +79,7 @@ class App extends React.Component {
         <TodoForm addGame={this.addGame}/>
         <TodoList games={this.state.games} 
         toggleGame={this.toggleGame}/>
+        <button onClick={this.clearGames}>clear</button>
       </div>
     );
   }
